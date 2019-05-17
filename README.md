@@ -1,4 +1,4 @@
-## Pure File Drop
+## Simple Stopwach
 Simple Stopwatch is a JS plugin made only with Vanilla JS. It has no dependencies which helps to make it fastest as possible.  
 
 ## Usage
@@ -8,27 +8,35 @@ Simple Stopwatch is a JS plugin made only with Vanilla JS. It has no dependencie
 
 ```javascript
 var simpleStopwatch = new SimpleStopwatch('#timer', {
-    autoStart: true, // start on create, if false will need to call the start() function
-    delimiter: ':', // delimiter use in the text
-    updateInterval: 1, // update the stopwatch after each 1 second
-    regressive: false, // if true, will go backwards
-    stopAt: '00:00:10', // stop at certain time
-    onStop: function (currentStopwatchTime, stopwatchParts) {
+    autoStart: true, // Start on create the instance, if false will need to call the start() function
+    delimiter: ':', // Delimiter used in the text
+    updateInterval: 1, // After each seconds update the time
+    regressive: false, // If true, the stopwatch will count backwards
+    stopAt: '00:00:10', // Stop at certain time
+    onStop: function (stopwatchElement, stopwatchParts) {
         // Event trigged on stop
     },
-    onUpdateStopwatch: function(currentStopwatchTime, stopwatchParts) {
+    onUpdateStopwatch: function(stopwatchElement, stopwatchParts) {
         // Event trigged on each update of the stopwatch
     }
 });
-```
+```  
+
+## Events
+
+#### # onStop(stopwatchElement, stopwatchParts)  
+Called when the stopwatch reaches the value specified in the **stopAt** property.
+
+#### # onUpdateStopwatch(stopwatchElement, stopwatchParts)  
+Called when the stopwatch is updated.
 
 ## Methods
 List of available methods
 
-#### start()
+#### # start()
 Start the stopwatch
 
-#### stop()
+#### # stop()
 Stop the stopwatch
 
 #### reset({ hours = 0, minutes = 0, seconds = 0})
