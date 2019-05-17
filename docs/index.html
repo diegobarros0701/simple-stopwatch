@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="timer">00:00:00</div>
+    <div>
+        
+    </div>
+
+    <script src="../dist/simple-stopwatch.js"></script>
+    <script>
+        var simpleStopwatch = new SimpleStopwatch('#timer', {
+            autoStart: true, // start on create, if false will need to call the start() function
+            delimiter: ':', // delimiter use in the text
+            updateInterval: 1, // update the stopwatch after each 1 second
+            regressive: false, // if true, will go backwards
+            stopAt: '00:00:10', // stop at certain time
+            onStop: function (urrentStopwatchTime, stopwatchParts) {
+                // Event on stop
+            },
+            onUpdateStopwatch: function(currentStopwatchTime, stopwatchParts) {
+                // Event on each time update
+            }
+        });
+    </script>
+</body>
+
+</html>
