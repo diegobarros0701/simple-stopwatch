@@ -4,32 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Simple Stopwatch - Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <div id="timer">00:00:00</div>
-    <div>
-        
-    </div>
+    <div class="container-fluid">
+        <div class="stopwatch-wrapper">
+            <div class="stopwatch-counter">
+                <span id="timer">-01:01:03</span>
+            </div>
 
-    <script src="../dist/simple-stopwatch.js"></script>
-    <script>
-        var simpleStopwatch = new SimpleStopwatch('#timer', {
-            autoStart: true, // start on create, if false will need to call the start() function
-            delimiter: ':', // delimiter use in the text
-            updateInterval: 1, // update the stopwatch after each 1 second
-            regressive: false, // if true, will go backwards
-            stopAt: '00:00:10', // stop at certain time
-            onStop: function (currentStopwatchTime, stopwatchParts) {
-                // Event on stop
-            },
-            onUpdateStopwatch: function(currentStopwatchTime, stopwatchParts) {
-                // Event on each time update
-            }
-        });
-    </script>
+            <div class="stopwatch-actions">
+                <button id="btn-start-stopwatch" class="btn btn-info" type="button">Start</button>
+                <button id="btn-stop-stopwatch" class="btn btn-info" type="button">Stop</button>
+                <div class="input-group">
+                    <input id="reset-value" type="text" class="form-control" placeholder="Reset to">
+                    <div class="input-group-append">
+                        <button id="btn-reset-stopwatch" class="btn btn-info" type="button">Reset</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input id="increment-value" type="text" class="form-control" placeholder="Amount to decrement">
+                    <div class="input-group-append">
+                        <button id="btn-increment-stopwatch" class="btn btn-info" type="button">Increment</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input id="decrement-value" type="text" class="form-control" placeholder="Amount to increment">
+                    <div class="input-group-append">
+                        <button id="btn-decrement-stopwatch" class="btn btn-info" type="button">Decrement</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../dist/simple-stopwatch.js"></script>
+        <script>
+            var simpleStopwatch = new SimpleStopwatch('#timer', {
+                autoStart: true, // start on create, if false will need to call the start() function
+                delimiter: ':', // delimiter use in the text
+                updateInterval: 1, // update the stopwatch after each 1 second
+                regressive: true, // if true, will go backwards
+                stopAt: '02:00:00', // stop at certain time
+                onStop: function (currentStopwatchTime, stopwatchParts) {
+                    // Event on stop
+                },
+                onUpdateStopwatch: function (currentStopwatchTime, stopwatchParts) {
+                    // Event on each time update
+                }
+            });
+        </script>
+        <script src="./js/script.js"></script>
 </body>
 
 </html>

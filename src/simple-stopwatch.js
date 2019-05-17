@@ -7,8 +7,8 @@ class SimpleStopwatch {
             updateInterval: 1,
             regressive: false,
             stopAt: '01:00:00',
-            onStop: function (currentStopwatchTime, stopwatchParts) { },
-            onUpdateStopwatch: function (currentStopwatchTime, stopwatchParts) { }
+            onStop: function (stopwatchElement, stopwatchParts) { },
+            onUpdateStopwatch: function (stopwatchElement, stopwatchParts) { }
         }, options);
 
         this._stopwatch = document.querySelector(selector);
@@ -43,11 +43,11 @@ class SimpleStopwatch {
         }
     }
 
-    reset() {
+    reset({ hours = 0, minutes = 0, seconds = 0}) {
         if (this._stopwatch != null) {
-            this._stopwatchParts.hours = 0;
-            this._stopwatchParts.minutes = 0;
-            this._stopwatchParts.seconds = 0;
+            this._stopwatchParts.hours = hours;
+            this._stopwatchParts.minutes = minutes;
+            this._stopwatchParts.seconds = seconds;
 
             this._updateStopwatchText();
         }
@@ -79,6 +79,9 @@ class SimpleStopwatch {
     }
 
     _updateStopwatch() {
+        // this._adjustStopwatch();
+        // this._options.regressive ? this._stopwatchParts.seconds -= 1 : this._stopwatchParts.seconds += 1;
+
         if (this._options.regressive) {
             if (this._stopwatchParts.seconds == 0) {
                 this._stopwatchParts.seconds = 59;

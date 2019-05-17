@@ -31,13 +31,13 @@ Start the stopwatch
 #### stop()
 Stop the stopwatch
 
-#### reset(to = '00:00:00')
+#### reset({ hours = 0, minutes = 0, seconds = 0})
 Reset the stopwatch to the specified time
 
-#### increment({ hour: 0, minutes: 0, seconds: 0 })
+#### increment({ hours = 0, minutes = 0, seconds = 0})
 Increment the stopwatch with the specified time parts.  
 **Note:** You don't need to pass all the properties, pass only the ones that you need.
 
-#### decrement({ hour: 0, minutes: 0, seconds: 0 })
+#### decrement({ hours = 0, minutes = 0, seconds = 0})
 Decrement the stopwatch with the specified time parts.  
 **Note:** You don't need to pass all the properties, pass only the ones that you need.
