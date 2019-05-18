@@ -1,5 +1,6 @@
 ## Simple Stopwach
 Simple Stopwatch is a JS plugin made only with Vanilla JS. It has no dependencies which helps to make it fastest as possible.  
+![Simple Stopwatch example image](https://raw.githubusercontent.com/diegobarros0701/simple-stopwatch/master/docs/assets/images/example.PNG "Simple Stopwatch example")
 
 ## Usage
 ```html
